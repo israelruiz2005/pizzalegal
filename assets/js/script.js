@@ -117,7 +117,21 @@ qS('.pizzaInfo--addButton').addEventListener('click', ()=>{
     closeModal();
 });
 
+// apresenta açoes para carrinho em celulares
+qS('.menu-openner').addEventListener('click', ()=>{
+    if(cart.length > 0){
+        qS('aside').style.left = '0';
+    };
+});
+
+qS('.menu-closer').addEventListener('click', ()=>{
+    qS('aside').style.left = '100vw';
+});
+
 function updateCart() {
+
+    // Ajusta botão quando em celulares ou tablets
+    qS('.menu-openner span').innerHTML = cart.length;
 
     if( cart.length > 0){
         qS('aside').classList.add('show');
@@ -184,6 +198,7 @@ function updateCart() {
 
     } else {
         qS('aside').classList.remove('show');
+        qS('aside').style.left = '100vw';
     };
 
 };
